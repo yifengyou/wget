@@ -1,0 +1,17 @@
+Description: properly detect SSLv3 being disabled on Ubuntu because the
+ method still exists for ABI reasons.
+Author: Marc Deslaurers <marc.deslauriers@canonical.com>
+
+Index: wget-1.18/src/openssl.c
+===================================================================
+--- wget-1.18.orig/src/openssl.c	2016-07-15 09:01:19.921293609 -0400
++++ wget-1.18/src/openssl.c	2016-07-15 09:04:04.750405444 -0400
+@@ -217,7 +217,7 @@
+       break;
+ #endif
+ 
+-#ifndef OPENSSL_NO_SSL3_METHOD
++#if !defined OPENSSL_NO_SSL3 && !defined OPENSSL_NO_SSL3_METHOD
+     case secure_protocol_sslv3:
+       meth = SSLv3_client_method ();
+       break;

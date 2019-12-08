@@ -1,0 +1,9 @@
+wget-doc-remove-usr-local-in-sample.wgetrc
+wget-doc-remove-usr-local-in-wget.texi
+wget-passive_ftp-default
+disable-SSLv3.patch
+CVE-2018-0494.patch
+CVE-2018-20483-1.patch
+CVE-2018-20483-2.patch
+CVE-2019-5953-1.patch
+CVE-2019-5953-2.patch
